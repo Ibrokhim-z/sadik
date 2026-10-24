@@ -1,0 +1,318 @@
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 900;
+    transition: background 0.35s, box-shadow 0.35s, padding 0.35s;
+    padding: 16px 0;
+}
+
+.scrolled {
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.07), 0 4px 20px rgba(0, 0, 0, 0.05);
+    padding: 10px 0;
+}
+
+.inner {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+/* ── Logo ── */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex-shrink: 0;
+    margin-right: auto;
+}
+
+.logoLeaf {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.logoText {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+}
+
+.nav:not(.scrolled) .logoText {
+    color: #fff;
+}
+
+/* ── Desktop Nav ── */
+.desktopNav {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin: 0 auto;
+}
+
+.navLink {
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.9);
+    transition: var(--transition-fast);
+    white-space: nowrap;
+}
+
+.navLink:hover {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.navLink.active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.2);
+    font-weight: 700;
+}
+
+.scrolled .navLink {
+    color: var(--text-mid);
+}
+
+.scrolled .navLink:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.scrolled .navLink.active {
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* ── Actions ── */
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+.phoneBtn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.9);
+    white-space: nowrap;
+    transition: var(--transition-fast);
+}
+
+.phoneBtn:hover {
+    color: #fff;
+}
+
+.scrolled .phoneBtn {
+    color: var(--text-mid);
+}
+
+.scrolled .phoneBtn:hover {
+    color: var(--primary);
+}
+
+.ctaBtn {
+    font-size: 0.85rem !important;
+    padding: 10px 20px !important;
+}
+
+/* ── Burger Button ── */
+.burger {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border: 1.5px solid rgba(255, 255, 255, 0.25);
+    cursor: pointer;
+    transition: var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.burger:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.scrolled .burger {
+    background: var(--bg);
+    color: var(--text);
+    border-color: var(--border);
+}
+
+.scrolled .burger:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+/* ── Backdrop ── */
+.backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 950;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    backdrop-filter: blur(2px);
+}
+
+.backdropOpen {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* ── Mobile Drawer ── */
+.drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(340px, 92vw);
+    background: var(--white);
+    z-index: 960;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(100%);
+    transition: transform 0.36s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -8px 0 40px rgba(0, 0, 0, 0.15);
+}
+
+.drawerOpen {
+    transform: translateX(0);
+}
+
+.drawerHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+}
+
+.drawerHeader .logo .logoText {
+    color: var(--text);
+}
+
+.closeBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: var(--bg);
+    color: var(--text-mid);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.closeBtn:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.drawerNav {
+    flex: 1;
+    padding: 12px 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.drawerLink {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    border-radius: 12px;
+    font-size: 0.97rem;
+    font-weight: 500;
+    color: var(--text-mid);
+    transition: var(--transition-fast);
+}
+
+.drawerLink:hover {
+    background: var(--bg);
+    color: var(--text);
+}
+
+.drawerActive {
+    background: var(--primary-light) !important;
+    color: var(--primary) !important;
+    font-weight: 700;
+}
+
+.chevron {
+    color: var(--text-muted);
+    flex-shrink: 0;
+}
+
+.drawerActive .chevron {
+    color: var(--primary);
+}
+
+.drawerFooter {
+    padding: 20px 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+/* ── Responsive breakpoints ── */
+@media (max-width: 1100px) {
+    .phoneBtn {
+        display: none;
+    }
+
+    .desktopNav {
+        gap: 0;
+    }
+
+    .navLink {
+        padding: 8px 10px;
+        font-size: 0.83rem;
+    }
+}
+
+@media (max-width: 900px) {
+    .desktopNav {
+        display: none;
+    }
+
+    .ctaBtn {
+        display: none;
+    }
+
+    .burger {
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    .logoText {
+        font-size: 1.15rem;
+    }
+}

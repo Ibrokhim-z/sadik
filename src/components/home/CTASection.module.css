@@ -1,0 +1,142 @@
+.wrap {
+    position: relative;
+    padding: 96px 0;
+    overflow: hidden;
+}
+
+.bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg,
+            rgba(44, 92, 69, 0.92) 0%,
+            rgba(44, 92, 69, 0.82) 50%,
+            rgba(44, 92, 69, 0.65) 100%);
+}
+
+.inner {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: center;
+}
+
+.text {
+    color: white;
+}
+
+.text h2 {
+    color: white;
+    margin-bottom: 16px;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+.text h2 em {
+    font-style: italic;
+    color: #F0C98A;
+}
+
+.text p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1rem;
+    margin-bottom: 28px;
+    line-height: 1.7;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.list li {
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 500;
+    font-size: 0.92rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.list li svg {
+    color: #F0C98A;
+    flex-shrink: 0;
+}
+
+.formWrap {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: 40px;
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.2);
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form h3 {
+    margin-bottom: 4px;
+    font-size: 1.3rem;
+}
+
+.error {
+    background: #fff0f0;
+    color: #c53030;
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+}
+
+.consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.82rem;
+    color: var(--text-light);
+    cursor: pointer;
+}
+
+.consent input {
+    margin-top: 3px;
+    accent-color: var(--primary);
+    flex-shrink: 0;
+}
+
+.success {
+    text-align: center;
+    padding: 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+.success h3 {
+    margin-bottom: 4px;
+}
+
+.success p {
+    color: var(--text-light);
+    max-width: 300px;
+}
+
+@media (max-width: 900px) {
+    .inner {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .formWrap {
+        padding: 28px;
+    }
+}

@@ -1,0 +1,152 @@
+.hero {
+    position: relative;
+    min-height: 100svh;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+.bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center 30%;
+    transform: scale(1.04);
+    transition: transform 8s ease;
+}
+
+.hero:hover .bg {
+    transform: scale(1);
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(105deg,
+            rgba(28, 33, 38, 0.72) 0%,
+            rgba(28, 33, 38, 0.45) 55%,
+            rgba(28, 33, 38, 0.10) 100%);
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    padding-top: 32px;
+    padding-bottom: 80px;
+}
+
+.left {
+    max-width: 620px;
+}
+
+.tag {
+    color: rgba(255, 255, 255, 0.9) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+.title {
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    color: #fff;
+    line-height: 1.15;
+    margin-bottom: 24px;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+}
+
+.title em {
+    font-style: italic;
+    color: #F0C98A;
+}
+
+.desc {
+    font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+    color: rgba(255, 255, 255, 0.88);
+    margin-bottom: 40px;
+    line-height: 1.75;
+    max-width: 520px;
+}
+
+.btns {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 56px;
+}
+
+.stats {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    padding-top: 32px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.statIcon {
+    color: #F0C98A;
+}
+
+.stat strong {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    font-family: var(--font-heading);
+    line-height: 1;
+}
+
+.stat span {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+}
+
+.wave {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    line-height: 0;
+    height: 80px;
+}
+
+.wave svg {
+    width: 100%;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .content {
+        min-height: calc(100svh - 80px);
+        padding-bottom: 60px;
+    }
+
+    .stats {
+        gap: 24px;
+    }
+
+    .btns {
+        flex-direction: column;
+    }
+
+    .btns .btn {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2rem;
+    }
+}

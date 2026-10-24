@@ -1,0 +1,135 @@
+.hero {
+    background: linear-gradient(135deg, #e8f0fe 0%, #fff8e1 100%);
+    padding: 80px 0;
+}
+
+.main {
+    background: var(--bg-alt);
+}
+
+.filters {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.filter {
+    padding: 10px 24px;
+    border-radius: 100px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    background: var(--white);
+    color: var(--text-mid);
+    transition: var(--transition);
+    border: 2px solid transparent;
+    cursor: pointer;
+}
+
+.filter:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.filterActive {
+    background: var(--primary) !important;
+    color: white !important;
+    border-color: var(--primary) !important;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.card {
+    background: var(--white);
+    border-radius: var(--radius);
+    padding: 36px 28px;
+    text-align: center;
+    box-shadow: var(--shadow-card);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-hover);
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+}
+
+.card h3 {
+    font-size: 1.05rem;
+}
+
+.role {
+    font-size: 0.85rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+.badge {
+    font-size: 0.75rem;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    padding: 4px 12px;
+    border-radius: 100px;
+    font-weight: 700;
+}
+
+.bio {
+    font-size: 0.87rem;
+    color: var(--text-light);
+    line-height: 1.65;
+    text-align: center;
+}
+
+.info {
+    width: 100%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid var(--bg-alt);
+    padding-top: 16px;
+    margin-top: 4px;
+}
+
+.info div {
+    font-size: 0.83rem;
+    color: var(--text-mid);
+}
+
+.info strong {
+    color: var(--text);
+}
+
+@media (max-width: 900px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 560px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+}

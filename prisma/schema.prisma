@@ -1,0 +1,96 @@
+// Prisma schema for Kindergarten website
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Admin {
+  id           Int    @id @default(autoincrement())
+  email        String @unique
+  passwordHash String
+  name         String @default("Администратор")
+}
+
+model News {
+  id          Int      @id @default(autoincrement())
+  title       String
+  slug        String   @unique
+  excerpt     String   @default("")
+  content     String
+  image       String   @default("")
+  published   Boolean  @default(true)
+  publishedAt DateTime @default(now())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model GalleryImage {
+  id        Int      @id @default(autoincrement())
+  url       String
+  category  String   @default("Общее")
+  caption   String   @default("")
+  order     Int      @default(0)
+  createdAt DateTime @default(now())
+}
+
+model Staff {
+  id         Int      @id @default(autoincrement())
+  name       String
+  role       String
+  photo      String   @default("")
+  bio        String   @default("")
+  education  String   @default("")
+  experience String   @default("")
+  category   String   @default("Воспитатели")
+  order      Int      @default(0)
+  createdAt  DateTime @default(now())
+}
+
+model Group {
+  id        Int      @id @default(autoincrement())
+  name      String
+  ageRange  String
+  capacity  Int      @default(15)
+  available Boolean  @default(true)
+  icon      String   @default("🌱")
+  order     Int      @default(0)
+}
+
+model Activity {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String
+  photo       String   @default("")
+  ageRange    String   @default("2–6 лет")
+  frequency   String   @default("")
+  icon        String   @default("⭐")
+  order       Int      @default(0)
+}
+
+model Inquiry {
+  id             Int      @id @default(autoincrement())
+  parentName     String
+  phone          String
+  childAge       String
+  groupInterest  String
+  comment        String   @default("")
+  read           Boolean  @default(false)
+  createdAt      DateTime @default(now())
+}
+
+model Settings {
+  id         Int    @id @default(1)
+  siteName   String @default("Балапан")
+  slogan     String @default("Место, где детство наполнено открытиями")
+  address    String @default("г. Алматы, ул. Примерная, 1")
+  phone      String @default("+7 (700) 000-00-00")
+  whatsapp   String @default("+77000000000")
+  email      String @default("info@balapan.kz")
+  workHours  String @default("Пн–Пт: 07:00–19:00")
+  mapEmbedUrl String @default("")
+  about      String @default("Мы создаём тёплую и безопасную среду для гармоничного развития вашего ребёнка.")
+}
